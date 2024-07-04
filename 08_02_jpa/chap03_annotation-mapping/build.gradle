@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.ohgiraffers'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // Lombok 의존성 추가
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    // 테스트를 위한 Lombok 의존성 추가 (선택 사항)
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    implementation("org.hibernate.orm:hibernate-core:6.3.1.Final")
+    implementation 'com.mysql:mysql-connector-j:8.0.33'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <aside th:fragment="asideFragment(parmeter,parmeter1)" class="aside">
+        <ul>
+            <li th:text="${parmeter}"></li>
+            <li th:text="${parmeter1}"></li>
+        </ul>
+
+
+    </aside>
+
+</body>
+</html>

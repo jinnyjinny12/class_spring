@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+
+    <persistence-unit name="jpatest">
+
+
+        <class>com.ohgiraffers.mapping.section01.entity.Member</class>
+        <class>com.ohgiraffers.mapping.section02.column.Member</class>
+        <class>com.ohgiraffers.mapping.section03.primarykey.Identity.Member</class>
+        <class>com.ohgiraffers.mapping.section03.primarykey.table.Member</class>
+        <class>com.ohgiraffers.mapping.section04.enumtype.Member</class>
+        <class>com.ohgiraffers.mapping.section05.access.Member</class>
+        <class>com.ohgiraffers.mapping.section05.property.Member</class>
+        <class>com.ohgiraffers.mapping.section06.compositkey.Member</class>
+        <class>com.ohgiraffers.mapping.section06.idclass.Member</class>
+
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/gangnam"/>
+<!--            데이터베이스의 이름이 강남인걸 선택해라-->
+            <property name="jakarta.persistence.jdbc.user" value="gangnam"/>
+            <property name="jakarta.persistence.jdbc.password" value="gangnam"/>
+<!--            데이터베이스의 유저, 패스워드를 연결!-->
+
+            <property name="hibernate.show_sql" value="true"/>
+<!--            쿼리보여줌-->
+            <property name="hibernate.format_sql" value="true"/>
+<!--            쿼리를 정리해서 보여줌-->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+<!--           data definiton language 테이블을 만들겠다-->
+
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

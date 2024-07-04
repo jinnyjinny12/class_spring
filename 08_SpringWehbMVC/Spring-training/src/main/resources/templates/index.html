@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="https://latex.now.sh/style.css">
+</head>
+<body>
+
+
+<h2>이거 입력창 값을 보여주는 2번문제 </h2>
+
+<form action="/mession01" method="get">
+    <input type="text" name="pathValue" />
+    <input type="submit" value="전송">
+</form>
+
+
+<h2>이거 3번 문제</h2>
+<form action="/mession02" method="get" th:Object="${formData}" id="myForm">
+    <label for="responseType"> 응답유형 :</label>
+    <select id="responseType" name="responseType">
+        <option value="normal">정상응답</option>
+        <option value="error">비정상응답</option>
+    </select>
+
+    <br>
+    <label for="message">메세지:</label>
+    <input type="text" id="message" name="message" />
+    <br>
+    <button type="submit">전송</button>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit",function(event){
+            const selectValue= document.getElementById("responseType").value;
+            if(selectValue === "error"){
+                alert("비정상 응답이 선택되었습니다. 폼을 제출할 수 없습니다.");
+                event.preventDefault();
+            }
+        });
+    </script>
+
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{ /css/common.css}"/>
+    <!--@{ /css/common.css}: static 폴더에 있는 css 를 가져오겠다-->
+</head>
+<body>
+    <h1 align="center"> 기타 </h1>
+    <!--align은 지금은 되지만 앞으로 지원하지 않겠다-->
+
+    <h2>th:with</h2>
+    <h3>지역 변수를 지정해서 쓸 수 있다.</h3>
+    <th:block th:with="start = ${ selectCriteria.startPage }, last = ${ selectCriteria.endPage }">
+    <!--th:with 는 지역 변수를 정의하여 해당 블록 내에서 사용할 수 있도록 한다. -->
+    <!--selectCriteria 객체의 startPage 와 endPage 값을 start 와 last 라는 이름의 지역변수로 정의. -->
+    <!--이 변수들은 이 블록 내에서만 사용됨.-->
+
+        <th:block th:each="p : ${ #numbers.sequence(start, last) }">
+        <!--th:each 는 반복문 속성으로 주어진 컬렉션의 각 요소를 반복해서 블록 내 코드를 실행한다-->
+        <!--start 에서 last 까지의 숫자 시퀀스 생성한다.-->
+        <!--p는 현재 반복중인 시퀀의 숫자를 나타냄-->
+            <th:block th:if="${ selectCriteria.pageNo eq p }">
+                <button th:text="${ p }" disabled></button>
+            </th:block>
+            <th:block th:if="${ selectCriteria.pageNo ne p }">
+                <button th:text="${ p }"></button>
+            </th:block>
+
+
+        </th:block>
+    </th:block>
+
+    <h2>SpringEL</h2>
+    <h3>
+        변수 표현식 ${...}은 SpringEL이라는 스프링에서 제공하는 표현식을 사용할 수 있다.
+        (SpringEL은 런타임 시 메서드 호출 및 기본 문자열 템플릿 등의 기능을 제공한다.)
+        단순한 변수가 아닌 Object, List, Map같은 객체를 사용하기 위해 활용할 수 있다.
+    </h3>
+
+    <p>Object</p>
+    <ul>
+        <li th:text="${ member.name }"></li>
+        <li th:text="${member.age}"></li>
+        <li th:text="${ member['age'] }"></li>
+        <!--member 라는 객체의 age 속성값을 가져옴-->
+
+        <li th:text="${ member.getGender() }"></li>   <!-- 위 두가지 방식은 getter가 필요 없지만 getGender()는 반드시 해당 클래스에 getter가 있어야 한다. -->
+    </ul>
+    <p>List</p>
+    <ul>
+        <li th:text="${ memberList[3].name }"></li>
+        <li th:text="${ memberList[3]['age'] }"></li>
+        <li th:text="${ memberList[3].getGender() }"></li>   <!-- 위 두가지 방식은 getter가 필요 없지만 getGender()는 반드시 해당 클래스에 getter가 있어야 한다. -->
+        <li th:text="${ memberList.get(3).getGender() }"></li><!-- get()방식을 사용시에는 뒤에 getter나 필드명 둘 중 아무거나 써도 된다. -->
+        <li th:text="${ memberList.get(3).adderess }"></li>
+    </ul>
+
+    <p>Map</p>
+    <ul>
+        <li th:text="${ memberMap['m03'].name }"></li>
+        <li th:text="${ memberMap['m03']['age'] }"></li>
+        <li th:text="${ memberMap['m03'].getGender() }"></li>   <!-- 위 두가지 방식은 getter가 필요 없지만 getGender()는 반드시 해당 클래스에 getter가 있어야 한다. -->
+    </ul>
+
+    <h2>security 인증 정보 여부</h2>
+    <h3>타임리프에서 시큐리티 적용 시 로그인, 로그아웃에 대한 이벤트를 줄 수 있다.</h3>
+    <th:block sec:authorize="isAuthenticated()">로그인 했음</th:block>
+    <th:block sec:authorize="isAuthenticated() == false">로그인 하지 않음</th:block>
+
+</body>
+</html>

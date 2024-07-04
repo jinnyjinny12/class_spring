@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="mission01" method="get">
+    <!--<form> 태그는 사용자가 입력한 데이터를 서버로 제출하는 역할을 함-->
+    <!--action="mission01" 이 속성은 폼 데이터가 제출되는 url 을 지정. "/mission01" 로 데이터가 전송됨. -->
+    <!--method="get" 은 폼 데이터가 전송될 HTTP 메서드를 지정한다. 여기서는 get 메서드를 사용함으로 입력한 데이터가 url의 쿼리 문자열(parameter string)으로 전송-->
+
+        <input type="text" name="pathValue" />
+        <!--사용자가 텍스트를 입력할 수 있는 상자로 이 상자의 이름은 pathvValue 다. 서버에서 데이터를 받을 때 사용-->
+        <input type="submit" value="전송" />
+    </form>
+
+    <form action="/submitOption" method="get">
+        <input type="text" name="pathValue" />
+        <label for="options"> 선택 </label>
+        <select name="selectedOption" id="options">
+            <option value="Option1">Option 1</option>
+            <option value="Option2">Option 2</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+<script>
+    const flashMessage2 = `[[${ flashMessage2 }]]`;
+    console.log(flashMessage2);
+    if(flashMessage2){
+        alert(flashMessage2);
+    }
+</script>
+</body>
+</html>

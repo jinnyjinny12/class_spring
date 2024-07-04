@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.ohgiraffers'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'com.mysql:mysql-connector-j:8.0.33'
+}
+
+test {
+    useJUnitPlatform()
+    //  JUnit : 자바 어플리케이션에서 테스트코드를 만들기 위한 라이브러리(여러 개)
+    // ex)mockito 단일 테스트를 위한 것
+
+}

@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.ohgiraffers'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.springframework/spring-core
+    implementation group: 'org.springframework', name: 'spring-core', version: '6.1.6'
+    // https://mvnrepository.com/artifact/org.springframework/spring-context
+    implementation group: 'org.springframework', name: 'spring-context', version: '6.1.6'
+    // https://mvnrepository.com/artifact/org.springframework/spring-beans
+    implementation group: 'org.springframework', name: 'spring-beans', version: '6.1.6'
+    // https://mvnrepository.com/artifact/org.springframework/spring-expression
+    implementation group: 'org.springframework', name: 'spring-expression', version: '6.1.6'
+    // https://mvnrepository.com/artifact/org.springframework/spring-aop
+    implementation group: 'org.springframework', name: 'spring-aop', version: '6.1.6'
+
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

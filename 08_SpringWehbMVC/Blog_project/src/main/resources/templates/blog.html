@@ -1,0 +1,39 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+
+<header th:replace="~{/common/header :: headerFragment}">
+    <h1>나는 header</h1>
+</header>
+
+<aside th:replace="~{/common/aside :: asideFragment(${value1}, ${value2})}"> </aside>
+
+<main>
+    <article>
+        <section>
+            <h1>
+                메인
+            </h1>
+        </section>
+    </article>
+</main>
+
+<footer th:insert="~{/common/footer :: footerFragement}">
+    <h2>나는 footer</h2>
+</footer>
+</body>
+<style>
+    .justify-content-center {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
+</html>
