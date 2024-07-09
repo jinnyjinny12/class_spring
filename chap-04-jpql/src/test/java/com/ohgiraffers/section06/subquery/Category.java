@@ -1,12 +1,10 @@
-package com.ohgiraffers.section03.projection;
+package com.ohgiraffers.section06.subquery;
 
+import jakarta.persistence.*;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.util.List;
 
-@Entity(name = "category_section03")
+@Entity(name = "category_section06")
 @Table(name = "tbl_category")
 public class Category {
 
@@ -18,12 +16,12 @@ public class Category {
     private String categoryName;
 
     @Column(name = "ref_category_code")
-    private String refCategoryCode;
+    private Integer refCategoryCode;
 
     public Category() {
     }
 
-    public Category(int categoryCode, String categoryName, String refCategoryCode) {
+    public Category(int categoryCode, String categoryName, Integer refCategoryCode) {
         this.categoryCode = categoryCode;
         this.categoryName = categoryName;
         this.refCategoryCode = refCategoryCode;
@@ -45,20 +43,21 @@ public class Category {
         this.categoryName = categoryName;
     }
 
-    public String getRefCategoryCode() {
+    public Integer getRefCategoryCode() {
         return refCategoryCode;
     }
 
-    public void setRefCategoryCode(String refCategoryCode) {
+    public void setRefCategoryCode(Integer refCategoryCode) {
         this.refCategoryCode = refCategoryCode;
     }
+
 
     @Override
     public String toString() {
         return "Category{" +
                 "categoryCode=" + categoryCode +
                 ", categoryName='" + categoryName + '\'' +
-                ", refCategoryCode='" + refCategoryCode + '\'' +
+                ", refCategoryCode=" + refCategoryCode +
                 '}';
     }
 }
