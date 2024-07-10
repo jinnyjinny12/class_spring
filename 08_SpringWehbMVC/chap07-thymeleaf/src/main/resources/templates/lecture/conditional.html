@@ -20,9 +20,14 @@
     <p th:unless="${ num < 0 }">넘어온 값은 0보다 크다.</p>   <!-- 조건에 해당하지 않으면 -->
     <!--false 라서 화면에 그려짐-->
 
-    <th:block th:if="${ str=='사과' }">
-        <p>사과 좋아요!</p>
+    <th:block th:if="${ str !='사과' }">
+        <p>사과 좋아요! 이건 사과 아닌거 </p>
     </th:block>
+
+    <th:block th:if="${ str =='사과' }">
+        <p>사과 좋아요! 얜 왜 안나오지? </p>
+    </th:block>
+
     <th:block th:if="${ str=='바나나' }">
         <p>바나나 좋아요!</p>
     </th:block>
